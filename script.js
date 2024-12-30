@@ -8,6 +8,7 @@ const deleteButton = document.getElementById("deleteButton");
 
 //Initialize
 document.addEventListener("DOMContentLoaded", function () {
+    addButton.addEventListener("click", addingTaskAlert);
     addButton.addEventListener("click", addTask);
     todoInput.addEventListener("keydown", function (event) {
         if(event.key === "Enter") {
@@ -28,6 +29,12 @@ function addTask () {
         saveToLocalStorage();
         todoInput.value = "";
         displayTasks();
+    }
+}
+
+function addingTaskAlert(){
+    if(todoInput.value !== ""){
+        alert(`New Task added: \"${todoInput.value}\"`);
     }
 }
 
